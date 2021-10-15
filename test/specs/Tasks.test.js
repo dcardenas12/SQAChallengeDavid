@@ -1,0 +1,25 @@
+const LandingPage = require('../pages/Landing.page')
+const LoginPage = require('../pages/Login.page')
+const DashboardPage = require('../pages/Dashboard.page')
+require('dotenv').config()
+
+describe('Tasks creation scenarios',() => {
+    it('create tasks successfully', async () => {
+        await browser.url('/')
+        await LandingPage.navigateToLoginPage()
+        await LoginPage.loginWithCredentials(process.env.USER_EMAIL,process.env.USER_PASSWORD)
+        await DashboardPage.validateSuccessfulLogin()
+        await DashboardPage.clickOnAddTaskButton()
+        await DashboardPage.createTasks(1)
+        await DashboardPage.validateCreatedTasks()
+    })
+    it('create multiple tasks', async () => {
+        await browser.url('/')
+        await LandingPage.navigateToLoginPage()
+        await LoginPage.loginWithCredentials(process.env.USER_EMAIL,process.env.USER_PASSWORD)
+        await DashboardPage.validateSuccessfulLogin()
+        await DashboardPage.clickOnAddTaskButton()
+        await DashboardPage.createTasks(10)
+        await DashboardPage.validateCreatedTasks()
+    })
+})

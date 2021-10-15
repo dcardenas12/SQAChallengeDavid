@@ -1,0 +1,33 @@
+{
+  "name": "todoist-automation-project",
+  "version": "1.0.0",
+  "description": "Todoist test automation project with webdriverio",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/wdio wdio.conf.js"
+  },
+  "keywords": [
+    "WebDriverIO",
+    "Mocha",
+    "Chai",
+    "Test",
+    "Automation"
+  ],
+  "author": "David Cardenas Guzman",
+  "license": "ISC",
+  "dependencies": {
+    "@wdio/cli": "^7.14.1"
+  },
+  "devDependencies": {
+    "@wdio/local-runner": "^7.14.1",
+    "@wdio/mocha-framework": "^7.14.1",
+    "@wdio/spec-reporter": "^7.14.1",
+    "casual": "^1.6.2",
+    "chai": "^4.3.4",
+    "chromedriver": "^94.0.0",
+    "dotenv": "^10.0.0",
+    "eslint": "^8.0.1",
+    "wdio-chromedriver-service": "^7.2.2",
+    "wdio-json-reporter": "^2.0.0"
+  }
+}
