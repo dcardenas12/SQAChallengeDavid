@@ -1,4 +1,4 @@
-
+require('dotenv').config()
 exports.config = {
     //
     // ====================
@@ -37,6 +37,9 @@ exports.config = {
     exclude: [
         // 'path/to/excluded/files'
     ],
+    user: process.env.BROWSERSTACK_USERNAME,
+    key: process.env.BROWSERSTACK_ACCESS_KEY,
+
     //
     // ============
     // Capabilities
@@ -66,8 +69,8 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'chrome',
-        acceptInsecureCerts: true
+        browserName: process.env.BROWSER,
+        acceptInsecureCerts: true,
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -87,7 +90,7 @@ exports.config = {
     // - webdriver, webdriverio
     // - @wdio/browserstack-service, @wdio/devtools-service, @wdio/sauce-service
     // - @wdio/mocha-framework, @wdio/jasmine-framework
-    // - @wdio/local-runner
+    // - @wdio/D-runner
     // - @wdio/sumologic-reporter
     // - @wdio/cli, @wdio/config, @wdio/utils
     // Level of logging verbosity: trace | debug | info | warn | error | silent
@@ -120,7 +123,9 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+    services: [
+        process.env.BROWSERSTACK_SERVICE
+    ],
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -153,6 +158,7 @@ exports.config = {
         ui: 'bdd',
         timeout: 60000
     },
+    host: 'hub.browserstack.com',
     //
     // =====
     // Hooks

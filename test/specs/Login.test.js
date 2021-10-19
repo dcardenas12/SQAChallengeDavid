@@ -14,6 +14,7 @@ describe('Login scenarios suite', () => {
         await browser.url('/')
         await LandingPage.navigateToLoginPage()
         await LoginPage.loginWithCredentials(process.env.USER_EMAIL,process.env.USER_PASSWORD)
+        await DashboardPage.changeTimeZoneWhenPrompted()
         await DashboardPage.validateSuccessfulLogin()
     })
     it('unsuccessful login, empty credentials', async () => {

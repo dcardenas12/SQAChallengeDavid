@@ -15,7 +15,8 @@ class DashboardPage extends Page {
     get lbl_taskContent () { return $("div[class $= task_content]") }
     get lbl_taskDescription () { return $("div[class $= task_description]") }
     get lbl_taskContents () { return $$("div[class $= task_content]") }
-    get lbl_taskDescriptions () { return $$("div[class $= task_description]") }  
+    get lbl_taskDescriptions () { return $$("div[class $= task_description]") }
+    get btn_dontChangeTimeZone (){ return $("a[class ^= 'timezone_link']:nth-of-type(2)") }   
 
     async validateSuccessfulLogin(){
         await this.img_avatar.waitForExist({timeout:5000})
@@ -57,6 +58,15 @@ class DashboardPage extends Page {
             })  
         expect(contentFound).to.deep.equal(singleContent)
         expect(DescriptionFound).to.deep.equal(singleDescription)   
+        }
+    }
+
+    async changeTimeZoneWhenPrompted() {
+        try{
+            this.btn_dontChangeTimeZone.waitForDisplayed({ timeout:2000, interval:200 })
+            this.btn_dontChangeTimeZone.click()
+        }catch(err){
+            console.log("Correct Timezone")
         }
     }
 
