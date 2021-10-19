@@ -124,7 +124,7 @@ exports.config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     services: [
-        process.env.BROWSERSTACK_SERVICE
+        process.env.LOCAL_SERVICE
     ],
     
     // Framework you want to run your specs with.
@@ -244,6 +244,7 @@ exports.config = {
      */
      afterTest: async function(test, context, { error, result, duration, passed, retries }) {
          await browser.reloadSession()
+         console.log("resultados: " + passed)
      },
 
 
@@ -287,8 +288,9 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
-    // onComplete: function(exitCode, config, capabilities, results) {
-    // },
+     onComplete: function(exitCode, config, capabilities, results) {
+         console.log("resumen: "+exitCode)
+     },
     /**
     * Gets executed when a refresh happens.
     * @param {String} oldSessionId session ID of the old session
