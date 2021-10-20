@@ -1,26 +1,27 @@
-Totoist test Automation Project
+
+# Totoist test Automation Project
+
 This is a test automation project using WebDriverIO for the Todoist application.
 
-Authors
-David Cárdenas Guzmán - @dcardenas12
 
-Documentation
-Pre-requisites
+## Authors
 
-Node.js/npm installed node.js page
-code editor installed (recommended: Visual Studio Code visual studio code page)
-Steps to create
+- David Cárdenas Guzmán - [@dcardenas12](https://github.com/dcardenas12)
 
-Create an empty folder with your project's name.
+  
+## Documentation
 
-Open your code editor and open your folder.
+**Pre-requisites**
 
-Open a terminal window on your folder's path.
+ - Node.js/npm installed [node.js page](https://nodejs.org/en/)
+ - code editor installed (recommended: Visual Studio Code [visual studio code page](https://code.visualstudio.com/))
 
-Initialize the project with command npm init
+**Steps to create**
 
-Enter all the information requested by npm.
-
-Install WebDriverIO using npm with command npm install @wdio/cli
-
-Install Chai library for assertions with command npx wdio config
+ 1. Create an empty folder with your project's name.
+ 2. Open your code editor and open your folder.
+ 3. Open a terminal window on your folder's path.
+ 4. Initialize the project with command `npm init`
+ 5. Enter all the information requested by npm.
+ 6. Install WebDriverIO using npm with command `npm  install @wdio/cli`
+ 7. Install Chai library for assertions with command `npx wdio config`
