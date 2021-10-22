@@ -20,7 +20,7 @@ pipeline{
         stage('test') {
             steps {
                 sh '''#!/bin/bash
-                    SERVICE=${params.service} BROWSER=${params.browser} ./node_modules/.bin/wdio wdio.conf.js --suite ${params.suite} 
+                    SERVICE=${params.service} BROWSER=${params.browser} ./node_modules/.bin/wdio wdio.conf.js
             '''
     }
         }
