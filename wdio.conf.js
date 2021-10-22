@@ -1,8 +1,10 @@
 require('dotenv').config()
 
 const myServices = new Map()
-myServices.set('LOCAL','chromedriver')
-myServices.set('REMOTE',"['browserstack', {browserstackLocal: true}]")
+myServices.set('local','chromedriver')
+myServices.set('remote',"['browserstack', {browserstackLocal: true}]")
+let myservice = process.env.SERVICE
+let mybrowser = process.env.BROWSER
 exports.config = {
     //
     // ====================
@@ -73,7 +75,7 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: process.env.BROWSER,
+        browserName: mybrowser,
         acceptInsecureCerts: true,
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
@@ -127,7 +129,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: [myServices.get(process.env.SERVICE)],
+    services: [myServices.get(myservice)],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
