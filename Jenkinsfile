@@ -7,7 +7,7 @@ pipeline{
         timeout(activity: true, time: 2)
     }
     parameters {
-        string defaultValue: 'local', name: 'service', trim: true
+        choice choices: ['local', 'remote'], name: 'service'
         string defaultValue: 'chrome', name: 'browser', trim: true
         string defaultValue: 'login', name: 'suite', trim: true
     }
@@ -19,7 +19,7 @@ pipeline{
         }
         stage('test') {
             steps {
-                sh 'SERVICE=params.service BROWSER=params.browser ./node_modules/.bin/wdio wdio.conf.js --suite params.suite'
+                sh 'SERVICE=${params.service} BROWSER=${params.browser} ./node_modules/.bin/wdio wdio.conf.js --suite ${params.suite}'
             }
         }
     }    
