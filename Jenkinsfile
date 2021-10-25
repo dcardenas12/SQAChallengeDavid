@@ -19,7 +19,9 @@ pipeline{
         }
         stage('test') {
             steps {
-                sh "SERVICE=${params.service} BROWSER=${params.browser} ./node_modules/.bin/wdio wdio.conf.js --suite ${params.suite}"
+                withCredentials([usernamePassword(credentialsId: '1b06193e-bbbb-4c1e-b58b-a9e0ea180ab5', passwordVariable: 'USER_PASSWORD', usernameVariable: 'USER_EMAIL')]) {
+                    sh "SERVICE=${params.service} BROWSER=${params.browser} ./node_modules/.bin/wdio wdio.conf.js --suite ${params.suite}"
+                }
     }
         }
     }    
