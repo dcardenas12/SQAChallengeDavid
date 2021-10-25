@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Todoist test automation project with webdriverio",
   "main": "index.js",
+
   "scripts": {
     "test": "./node_modules/.bin/wdio wdio.conf.js"
   },
@@ -28,6 +29,7 @@
     "chromedriver": "^94.0.0",
     "dotenv": "^10.0.0",
     "eslint": "^8.0.1",
-    "wdio-chromedriver-service": "^7.2.2"
+    "wdio-chromedriver-service": "^7.2.2",
+    "wdio-json-reporter": "^2.0.0"
   }
 }
