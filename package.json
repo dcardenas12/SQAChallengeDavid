@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Todoist test automation project with webdriverio",
   "main": "index.js",
-
   "scripts": {
     "test": "./node_modules/.bin/wdio wdio.conf.js"
   },

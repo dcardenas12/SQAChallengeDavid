@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const myServices = new Map()
 myServices.set('local','chromedriver')
-myServices.set('remote',"['browserstack', {browserstackLocal: true}]")
+myServices.set('remote',['browserstack', {browserstackLocal: true}])
 let myservice = process.env.SERVICE
 let mybrowser = process.env.BROWSER
 exports.config = {
