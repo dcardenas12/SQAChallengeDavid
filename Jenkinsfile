@@ -14,14 +14,14 @@ pipeline{
     stages {
         stage('build') {
             steps {
-                sh 'npm install'
+                sh "npm install"
             }
         }
         stage('test') {
             steps {
-                sh '''#!/bin/bash
+                sh "#!/bin/bash
                     SERVICE=$(params.service) BROWSER=$(params.browser) ./node_modules/.bin/wdio wdio.conf.js --suite $(params.suite) 
-            '''
+            "
     }
         }
     }    
