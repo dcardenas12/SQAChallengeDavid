@@ -63,8 +63,9 @@ class DashboardPage extends Page {
 
     async changeTimeZoneWhenPrompted() {
         try{
-            this.btn_dontChangeTimeZone.waitForDisplayed({ timeout:2000, interval:200 })
-            this.btn_dontChangeTimeZone.click()
+            await this.btn_dontChangeTimeZone.waitForDisplayed({ interval:200, 
+                timeout:2000 })
+            await this.btn_dontChangeTimeZone.click()
         }catch(err){
             console.log("Correct Timezone")
         }
