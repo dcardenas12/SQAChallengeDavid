@@ -3,8 +3,6 @@ require('dotenv').config()
 const myServices = new Map()
 myServices.set('local','chromedriver')
 myServices.set('remote',['browserstack', {browserstackLocal: true}])
-console.log("usuario BS: "+process.env.BROWSERSTACK_USERNAME)
-console.log("contraseña es: "+process.env.BROWSERSTACK_ACCESS_KEY)
 let myservice = process.env.SERVICE
 let mybrowser = process.env.BROWSER
 exports.config = {
