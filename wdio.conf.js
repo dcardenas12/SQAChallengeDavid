@@ -37,6 +37,10 @@ exports.config = {
         ],
         tasks: [
             './test/specs/Tasks.test.js'
+        ],
+        regression: [
+            './test/specs/Login.test.js',
+            './test/specs/Tasks.test.js'
         ]
     },
     // Patterns to exclude.
