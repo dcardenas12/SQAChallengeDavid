@@ -1,12 +1,12 @@
 module.exports = {
     "env": {
         "browser": true,
-        "commonjs": true,
         "es2021": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-        "ecmaVersion": 13
+        "ecmaVersion": 13,
+        "sourceType": "module"
     },
     "rules": {
         "accessor-pairs": "error",
@@ -31,12 +31,22 @@ module.exports = {
             "error",
             "always"
         ],
+        "brace-style": [
+            "error",
+            "1tbs",
+            {
+                "allowSingleLine": true
+            }
+        ],
         "camelcase": "off",
         "capitalized-comments": "error",
         "class-methods-use-this": "off",
         "comma-dangle": "error",
         "comma-spacing": "off",
-        "comma-style": "error",
+        "comma-style": [
+            "error",
+            "last"
+        ],
         "complexity": "error",
         "computed-property-spacing": [
             "error",
@@ -73,7 +83,13 @@ module.exports = {
         "init-declarations": "off",
         "jsx-quotes": "error",
         "key-spacing": "off",
-        "keyword-spacing": "off",
+        "keyword-spacing": [
+            "error",
+            {
+                "after": false,
+                "before": false
+            }
+        ],
         "line-comment-position": "error",
         "linebreak-style": [
             "error",
@@ -107,7 +123,7 @@ module.exports = {
         "no-bitwise": "error",
         "no-caller": "error",
         "no-confusing-arrow": "error",
-        "no-console": "error",
+        "no-console": "off",
         "no-constructor-return": "error",
         "no-continue": "error",
         "no-div-regex": "error",
@@ -170,8 +186,9 @@ module.exports = {
         "no-ternary": "error",
         "no-throw-literal": "error",
         "no-trailing-spaces": "off",
-        "no-undef-init": "off",
-        "no-undefined": "off",
+        "no-undef-init": "error",
+        "no-undefined": "error",
+        "no-undef": "warn",
         "no-underscore-dangle": "error",
         "no-unmodified-loop-condition": "error",
         "no-unneeded-ternary": "error",
@@ -225,7 +242,10 @@ module.exports = {
             "last"
         ],
         "sort-imports": "error",
-        "sort-keys": "error",
+        "sort-keys": [
+            "error",
+            "asc"
+        ],
         "sort-vars": "error",
         "space-before-blocks": "off",
         "space-before-function-paren": "off",
@@ -236,10 +256,7 @@ module.exports = {
         "space-infix-ops": "off",
         "space-unary-ops": "error",
         "spaced-comment": "error",
-        "strict": [
-            "error",
-            "never"
-        ],
+        "strict": "error",
         "switch-colon-spacing": "error",
         "symbol-description": "error",
         "template-curly-spacing": [
