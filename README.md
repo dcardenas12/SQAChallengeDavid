@@ -25,3 +25,11 @@ This is a test automation project using WebDriverIO for the Todoist application.
  5. Enter all the information requested by npm.
  6. Install WebDriverIO using npm with command `npm  install @wdio/cli`
  7. Install Chai library for assertions with command `npx wdio config`
+
+ **How to execute**
+
+ To use environmental variables defined on the -env file use folowwing command in terminal while located in project's root folder:
+ `node_modules/.bin/wdio wdio.conf.js`
+
+ If you want to run an specific suite:
+ `node_modules/.bin/wdio wdio.conf.js --suite <suite name>`
