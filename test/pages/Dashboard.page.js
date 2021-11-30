@@ -16,7 +16,10 @@ class DashboardPage extends Page {
     get lbl_taskDescription () { return $("div[class $= task_description]") }
     get lbl_taskContents () { return $$("div[class $= task_content]") }
     get lbl_taskDescriptions () { return $$("div[class $= task_description]") }
-    get btn_dontChangeTimeZone (){ return $("a[class ^= 'timezone_link']:nth-of-type(2)") }   
+    get btn_dontChangeTimeZone (){ return $("a[class ^= 'timezone_link']:nth-of-type(2)") }
+    get btn_dueDate (){ return $(".item_due_selector") }
+    get edt_dueDate (){ return $(".scheduler-input input") }   
+    get btn_previewDate (){ return $(".scheduler-preview-content") } 
 
     async validateSuccessfulLogin(){
         await this.img_avatar.waitForExist({timeout:5000})
@@ -70,6 +73,12 @@ class DashboardPage extends Page {
             console.log("Correct Timezone")
         }
     }
+
+    async addCustomDueDate(dueDate) {
+        await this.btn_dueDate.click()
+        await this.edt_dueDate.addValue(dueDate)
+        await this.btn_previewDate.click()
+    } 
 
 }
 module.exports = new DashboardPage()
