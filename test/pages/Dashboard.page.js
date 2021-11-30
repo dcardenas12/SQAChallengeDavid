@@ -18,8 +18,11 @@ class DashboardPage extends Page {
     get lbl_taskDescriptions () { return $$("div[class $= task_description]") }
     get btn_dontChangeTimeZone (){ return $("a[class ^= 'timezone_link']:nth-of-type(2)") }
     get btn_dueDate (){ return $(".item_due_selector") }
-    get edt_dueDate (){ return $(".scheduler-input input") }   
-    get btn_previewDate (){ return $(".scheduler-preview-content") } 
+    get edt_dueDate (){ return $(".scheduler-input input") }
+    get btn_previewDate (){ return $(".scheduler-preview-content") }
+    get btn_scheduleTomorrow () { return $("button[data-track *= 'tomorrow']") }
+    get btn_scheduleNextWeek () { return $("button[data-track *= 'nextweek']") }
+    get btn_scheduleNoDate () { return $("button[data-track *= 'nodate']") }
 
     async validateSuccessfulLogin(){
         await this.img_avatar.waitForExist({timeout:5000})
@@ -76,8 +79,16 @@ class DashboardPage extends Page {
 
     async addCustomDueDate(dueDate) {
         await this.btn_dueDate.click()
-        await this.edt_dueDate.addValue(dueDate)
-        await this.btn_previewDate.click()
+        if(dueDate === "tomorrow"){
+            await this.btn_scheduleTomorrow.click()
+        }else if(dueDate === "next week"){
+            await this.btn_scheduleNextWeek.click()
+        }else if(dueDate === "no date"){
+            await this.btn_scheduleNoDate.click()
+        }else{
+            await this.edt_dueDate.addValue(dueDate)
+            await this.btn_previewDate.click()
+        }
     } 
 
 }
