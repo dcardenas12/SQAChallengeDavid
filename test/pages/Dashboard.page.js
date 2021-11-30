@@ -89,7 +89,7 @@ class DashboardPage extends Page {
             await this.edt_dueDate.addValue(dueDate)
             await this.btn_previewDate.click()
         }
-    }
+    } 
 
 }
 module.exports = new DashboardPage()
